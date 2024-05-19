@@ -15,7 +15,7 @@ torch==1.12.1+cu113
 scipy==1.9.3pip install -r requirements.txt
 ```
 
-## ### Training and evaluation
+## Training and evaluation
 1. Train model
 To train model from scratch, run `train_bat.py` with arguments. Please refer to `my_parser_bat.py` for the examples of the arguments. Please tune the hyperparameters of our model using the range provided in paper because the best hyperparameters may be different due to randomness.
 
