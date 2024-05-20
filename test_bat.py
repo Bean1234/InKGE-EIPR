@@ -57,34 +57,15 @@ print("Test")
 my_model.eval()
 test_msg = test.msg_triplets
 test_sup = test.sup_triplets
-# test_relation_triplets,rel_graph,G_nx,node_feat = generate_relation_triplets(test_msg, test.num_ent, test.num_rel, B)
 test_init_emb_ent1, test_init_emb_rel1, test_relation_triplets,rel_graph,G_test= initialize(test, test_msg, d_e, d_r, B)
 
-# test_init_emb_ent_samples, test_init_emb_rel_samples, test_relation_triplets_samples = [], [], []
-# for _ in range(args.mc):
-# 	test_init_emb_ent, test_init_emb_rel, test_relation_triplets,rel_graph,G_test= initialize(test, test_msg, d_e, d_r, B)
-# 	test_relation_triplets = torch.tensor(test_relation_triplets).cuda()
-# 	test_init_emb_ent_samples.append(test_init_emb_ent)
-# 	test_init_emb_rel_samples.append(test_init_emb_rel)
-# 	test_relation_triplets_samples.append(test_relation_triplets)
-#
-# test_sup = torch.tensor(test_sup).cuda()
-# test_msg = torch.tensor(test_msg).cuda()
-#
-# metrics = evaluate_mc(
-# 	my_model, test,
-# 	test_init_emb_ent_samples, test_init_emb_rel_samples, test_relation_triplets_samples,
-# 	full_graph_neg = args.full_graph_neg)
-
-# test_end_time = time.time()
-# print(f"Test Time: {test_end_time - test_start_time}")
 if not args.best:
 	test_init_emb_ent = torch.load(f"ckpt/{args.exp}/{args.data_name}/{file_format}_{args.target_epoch}.ckpt")["inf_emb_ent"]
 	test_init_emb_rel = torch.load(f"ckpt/{args.exp}/{args.data_name}/{file_format}_{args.target_epoch}.ckpt")["inf_emb_rel"]
 else:
 	test_init_emb_ent = torch.load(f"ckpt/best/{args.data_name}/best.ckpt")["inf_emb_ent"]
 	test_init_emb_rel = torch.load(f"ckpt/best/{args.data_name}/best.ckpt")["inf_emb_rel"]
-#
+
 test_sup = torch.tensor(test_sup).cuda()
 test_msg = torch.tensor(test_msg).cuda()
 
