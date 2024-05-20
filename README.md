@@ -1,4 +1,5 @@
-# Submit to CIKM 2024
+# Official code of Inductive Knowledge Graph Embedding via Exploring Interaction Patterns of Relations 
+## Submit to CIKM 2024
 
 ## Requirements
 
