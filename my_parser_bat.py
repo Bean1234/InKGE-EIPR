@@ -20,7 +20,6 @@ def parse(test=False):
     parser.add_argument('-hdr_r', '--hidden_dimension_ratio_relation', default = 4, type = int)
     parser.add_argument('-b', '--num_bin', default = 10, type = int)
     parser.add_argument('-e', '--num_epoch', default = 10000, type = int)
-    # parser.add_argument('--full_graph_neg', default="True", help="Use full graph negative sampling for nodes")
     if test:
         parser.add_argument('--target_epoch', default = 10000, type = int)
     parser.add_argument('-v', '--validation_epoch', default = 200, type = int)
