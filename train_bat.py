@@ -64,14 +64,11 @@ best_epoch_hit1 =0
 BEST_METRIC_KEY = 'MRR'
 args.logger.info('BEST_METRIC_KEY:{}'.format(BEST_METRIC_KEY))
 
-# msg, sup = train.split_transductive(0.75)
-# init_emb_ent, init_emb_rel, relation_triplets, rel_graph,G_nx = initialize(train, msg, d_e, d_r, B)
-# msg = torch.tensor(msg).cuda()
-# sup = torch.tensor(sup).cuda()
+
 for epoch in pbar:
 	optimizer.zero_grad()
-	# p = random.choice([0.65,0.85,0.75])
-	msg, sup = train.split_transductive(0.85)
+	p = random.choice([0.65,0.85,0.75])
+	msg, sup = train.split_transductive(p)
 
 	init_emb_ent, init_emb_rel, relation_triplets, rel_graph,G_nx = initialize(train, msg, d_e, d_r, B)
 	msg = torch.tensor(msg).cuda()
